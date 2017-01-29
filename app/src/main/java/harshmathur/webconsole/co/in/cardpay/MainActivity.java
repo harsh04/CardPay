@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        SharedPreferences sharedPreferences = getSharedPreferences("prayag-userinfo", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("infoondata-userinfo", Context.MODE_PRIVATE);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View hView =  navigationView.getHeaderView(0);
@@ -95,12 +95,18 @@ public class MainActivity extends AppCompatActivity
         if(requestCode == RC_SIGN_IN){
             if(resultCode == RESULT_OK){
                 Log.d("AUTH",auth.getCurrentUser().getEmail());
-                SharedPreferences sharedPreferences = getSharedPreferences("prayag-userinfo", Context.MODE_PRIVATE);
+                SharedPreferences sharedPreferences = getSharedPreferences("infoondata-userinfo", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("emailId", auth.getCurrentUser().getEmail());
                 editor.putString("username", auth.getCurrentUser().getDisplayName());
                 editor.apply();
-                // saveInfoOnline();
+                NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+                navigationView.setNavigationItemSelectedListener(this);
+                View hView =  navigationView.getHeaderView(0);
+                TextView nav_user_name = (TextView)hView.findViewById(R.id.user_name);
+                nav_user_name.setText(auth.getCurrentUser().getDisplayName());
+                TextView nav_user_email = (TextView)hView.findViewById(R.id.user_email);
+                nav_user_email.setText(auth.getCurrentUser().getEmail());
             }else {
                 Log.d("AUTH","not authenticated");
                 finish();
