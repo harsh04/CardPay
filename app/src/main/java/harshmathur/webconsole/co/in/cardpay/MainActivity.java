@@ -3,6 +3,7 @@ package harshmathur.webconsole.co.in.cardpay;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -22,6 +23,14 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        HomeFragment homeFragment = new HomeFragment();
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(
+                R.id.content_main,
+                homeFragment,
+                homeFragment.getTag()
+        ).commit();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -80,17 +89,55 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        if (id == R.id.nav_home) {
+            HomeFragment homeFragment = new HomeFragment();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(
+                    R.id.content_main,
+                    homeFragment,
+                    homeFragment.getTag()
+            ).commit();
+        } else if (id == R.id.nav_cards) {
+            CardsFragment cardsFragment = new CardsFragment();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(
+                    R.id.content_main,
+                    cardsFragment,
+                    cardsFragment.getTag()
+            ).commit();
+        } else if (id == R.id.nav_transactions) {
+            TransactionFragment transactionFragment = new TransactionFragment();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(
+                    R.id.content_main,
+                    transactionFragment,
+                    transactionFragment.getTag()
+            ).commit();
+        } else if (id == R.id.nav_setings) {
+            SettingsFragment settingsFragment = new SettingsFragment();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(
+                    R.id.content_main,
+                    settingsFragment,
+                    settingsFragment.getTag()
+            ).commit();
+        } else if (id == R.id.nav_feedback) {
+            FeedbackFragment feedbackFragment = new FeedbackFragment();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(
+                    R.id.content_main,
+                    feedbackFragment,
+                    feedbackFragment.getTag()
+            ).commit();
+        } else if (id == R.id.nav_about) {
+            AboutFragment aboutFragment = new AboutFragment();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(
+                    R.id.content_main,
+                    aboutFragment,
+                    aboutFragment.getTag()
+            ).commit();
+        } else if (id == R.id.nav_log_out) {
 
         }
 
