@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "676891659474",
+    "firebase_url": "https://cardpay-3339c.firebaseio.com",
+    "project_id": "cardpay-3339c",
+    "storage_bucket": "cardpay-3339c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:676891659474:android:8cab8c5c545f1868",
+        "android_client_info": {
+          "package_name": "harshmathur.webconsole.co.in.cardpay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "676891659474-ri7t80trgah1k239gjd5jf736jns4efj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "harshmathur.webconsole.co.in.cardpay",
+            "certificate_hash": "695F358B1C205C125FFD463F0BA381309C6043AE"
+          }
+        },
+        {
+          "client_id": "676891659474-4gonrerh9td55le9t7p8mi3o0sn0d484.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtNszF9XCRsGFgwjXdIcgzyeh6ZxUDj0g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "676891659474-4gonrerh9td55le9t7p8mi3o0sn0d484.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
