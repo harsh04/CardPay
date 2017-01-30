@@ -2,6 +2,7 @@ package harshmathur.webconsole.co.in.cardpay;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.view.PagerAdapter;
@@ -82,7 +83,7 @@ public class WelcomeActivity extends AppCompatActivity {
                     // move to next screen
                     viewPager.setCurrentItem(current);
                 } else {
-                    launchHomeScreen();
+                    launchPinScreen();
                 }
             }
         });
@@ -117,6 +118,11 @@ public class WelcomeActivity extends AppCompatActivity {
 
         prefManager.setFirstTimeLaunch(false);
         startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+        finish();
+    }
+    private void launchPinScreen() {
+        prefManager.setFirstTimeLaunch(false);
+        startActivity(new Intent(WelcomeActivity.this, PinSetupActivity.class));
         finish();
     }
 

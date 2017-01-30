@@ -74,7 +74,6 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         auth = FirebaseAuth.getInstance();
-        //databaseReference = FirebaseDatabase.getInstance().getReference();
 
         if(auth.getCurrentUser() != null){
             Log.d("AUTH",auth.getCurrentUser().getEmail());
@@ -83,9 +82,13 @@ public class MainActivity extends AppCompatActivity
             startActivityForResult(AuthUI.getInstance()
                     .createSignInIntentBuilder()
                     .setProviders(
-                            //AuthUI.EMAIL_PROVIDER,
+                            //AuthUI.EMAIL_PROVIDER,    //Just enable this to enable email service for login
                             AuthUI.GOOGLE_PROVIDER
                     ).build(), RC_SIGN_IN);
+        }
+        if((sharedPreferences.getString("digit0","").equals("")) || (sharedPreferences.getString("digit1","").equals("")) || (sharedPreferences.getString("digit2","").equals("")) || (sharedPreferences.getString("digit3","").equals(""))){
+            startActivity(new Intent(MainActivity.this, PinSetupActivity.class));      // Launch Pin setup screen if Pin is not set properly
+
         }
     }
 
