@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 public class PinSetupActivity extends Activity implements View.OnClickListener{
 
@@ -25,7 +24,7 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pin_setup);
+        setContentView(R.layout.activity_pin);
         next = (Button) findViewById(R.id.nextBtn);
         next.setEnabled(false);
         one = (Button) findViewById(R.id.num1);
@@ -75,7 +74,8 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
         editor.putString("digit2", String.valueOf(digit[2]));
         editor.putString("digit3", String.valueOf(digit[3]));
         editor.apply();
-        Toast.makeText(this,"pin = "+digit[0]+" "+digit[1]+" "+digit[2]+" "+digit[3]+" ",Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(PinSetupActivity.this, VerifyPinActivity.class));
+
     }
 
     private void buttonHandle(Boolean bool){

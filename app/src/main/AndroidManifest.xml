@@ -30,7 +30,11 @@
         <activity
             android:name=".PinSetupActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".VerifyPinActivity"></activity>
+        <activity android:name=".VerifyPinActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".InfoSetupActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
