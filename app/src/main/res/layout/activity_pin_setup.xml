@@ -30,8 +30,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="33dp"
+            android:id="@+id/digit0"
+            android:src="@drawable/unlock"
+            android:layout_weight="1" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="33dp"
             android:id="@+id/digit1"
-            android:src="@drawable/lock"
+            android:src="@drawable/unlock"
             android:layout_weight="1" />
         <ImageView
             android:layout_width="match_parent"
@@ -45,13 +52,6 @@
             android:layout_height="match_parent"
             android:padding="33dp"
             android:id="@+id/digit3"
-            android:src="@drawable/unlock"
-            android:layout_weight="1" />
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="33dp"
-            android:id="@+id/digit4"
             android:src="@drawable/unlock"
             android:layout_weight="1" />
     </LinearLayout>

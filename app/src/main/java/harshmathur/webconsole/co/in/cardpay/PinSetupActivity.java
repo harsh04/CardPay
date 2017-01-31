@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class PinSetupActivity extends Activity implements View.OnClickListener{
@@ -19,6 +20,7 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
     private int posOfPointer = 0;
 
     Button one,two,three,four,five,six,seven,eight,nine,zero,cross,next;
+    ImageView[] digitImg = new ImageView[4];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,19 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
         cross = (Button) findViewById(R.id.cross);
         cross.setOnClickListener(this);
 
+        digitImg[0] = (ImageView) findViewById(R.id.digit0);
+        digitImg[1] = (ImageView) findViewById(R.id.digit1);
+        digitImg[2] = (ImageView) findViewById(R.id.digit2);
+        digitImg[3] = (ImageView) findViewById(R.id.digit3);
+
+    }
+
+    protected void imgHandler(int pos,int val){
+        if(val == 0){
+            digitImg[pos].setImageResource(R.drawable.unlock);
+        }else if(val == 1){
+            digitImg[pos].setImageResource(R.drawable.dot);
+        }
     }
 
 
@@ -63,18 +78,18 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
         Toast.makeText(this,"pin = "+digit[0]+" "+digit[1]+" "+digit[2]+" "+digit[3]+" ",Toast.LENGTH_SHORT).show();
     }
 
-    private void buttonHandle(){
-        next.setEnabled(true);
-        one.setEnabled(false);
-        two.setEnabled(false);
-        three.setEnabled(false);
-        four.setEnabled(false);
-        five.setEnabled(false);
-        six.setEnabled(false);
-        seven.setEnabled(false);
-        eight.setEnabled(false);
-        nine.setEnabled(false);
-        zero.setEnabled(false);
+    private void buttonHandle(Boolean bool){
+        next.setEnabled(!bool);
+        one.setEnabled(bool);
+        two.setEnabled(bool);
+        three.setEnabled(bool);
+        four.setEnabled(bool);
+        five.setEnabled(bool);
+        six.setEnabled(bool);
+        seven.setEnabled(bool);
+        eight.setEnabled(bool);
+        nine.setEnabled(bool);
+        zero.setEnabled(bool);
 
     }
     /* TO DISABLE BACKPRESS FOR SECURITY REASON */
@@ -88,76 +103,101 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
         switch (v.getId()){
             case R.id.num0:
                 digit[posOfPointer] = 0;
-                posOfPointer++;
-                if(posOfPointer == 4){
-                    buttonHandle();
+                imgHandler(posOfPointer,1);
+                if(posOfPointer == 3){
+                    buttonHandle(false);
+                }else {          
+                    posOfPointer++;
                 }
                 break;
             case R.id.num1:
                 digit[posOfPointer] = 1;
-                posOfPointer++;
-                if(posOfPointer == 4){
-                    buttonHandle();
+                imgHandler(posOfPointer,1);
+                if(posOfPointer == 3){
+                    buttonHandle(false);
+                }else {          
+                    posOfPointer++;
                 }
                 break;
             case R.id.num2:
                 digit[posOfPointer] = 2;
-                posOfPointer++;
-                if(posOfPointer == 4){
-                    buttonHandle();
+                imgHandler(posOfPointer,1);
+                if(posOfPointer == 3){
+                    buttonHandle(false);
+                }else {          
+                    posOfPointer++;
                 }
                 break;
             case R.id.num3:
                 digit[posOfPointer] = 3;
-                posOfPointer++;
-                if(posOfPointer == 4){
-                    buttonHandle();
+                imgHandler(posOfPointer,1);
+                if(posOfPointer == 3){
+                    buttonHandle(false);
+                }else {          
+                    posOfPointer++;
                 }
                 break;
             case R.id.num4:
                 digit[posOfPointer] = 4;
-                posOfPointer++;
-                if(posOfPointer == 4){
-                    buttonHandle();
+                imgHandler(posOfPointer,1);
+                if(posOfPointer == 3){
+                    buttonHandle(false);
+                }else {          
+                    posOfPointer++;
                 }
                 break;
             case R.id.num5:
                 digit[posOfPointer] = 5;
-                posOfPointer++;
-                if(posOfPointer == 4){
-                    buttonHandle();
+                imgHandler(posOfPointer,1);
+                if(posOfPointer == 3){
+                    buttonHandle(false);
+                }else {          
+                    posOfPointer++;
                 }
                 break;
             case R.id.num6:
                 digit[posOfPointer] = 6;
-                posOfPointer++;
-                if(posOfPointer == 4){
-                    buttonHandle();
+                imgHandler(posOfPointer,1);
+                if(posOfPointer == 3){
+                    buttonHandle(false);
+                }else {          
+                    posOfPointer++;
                 }
                 break;
             case R.id.num7:
                 digit[posOfPointer] = 7;
-                posOfPointer++;
-                if(posOfPointer == 4){
-                    buttonHandle();
+                imgHandler(posOfPointer,1);
+                if(posOfPointer == 3){
+                    buttonHandle(false);
+                }else {          
+                    posOfPointer++;
                 }
                 break;
             case R.id.num8:
                 digit[posOfPointer] = 8;
-                posOfPointer++;
-                if(posOfPointer == 4){
-                    buttonHandle();
+                imgHandler(posOfPointer,1);
+                if(posOfPointer == 3){
+                    buttonHandle(false);
+                }else {          
+                    posOfPointer++;
                 }
                 break;
             case R.id.num9:
                 digit[posOfPointer] = 9;
-                posOfPointer++;
-                if(posOfPointer == 4){
-                    buttonHandle();
+                imgHandler(posOfPointer,1);
+                if(posOfPointer == 3){
+                    buttonHandle(false);
+                }else {          
+                    posOfPointer++;
                 }
                 break;
             case R.id.cross:
-                posOfPointer--;
+                posOfPointer = 0;
+                imgHandler(0,0);
+                imgHandler(1,0);
+                imgHandler(2,0);
+                imgHandler(3,0);
+                buttonHandle(true);
                 break;
             default: break;
         }
