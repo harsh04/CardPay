@@ -3,6 +3,7 @@ package harshmathur.webconsole.co.in.cardpay;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -68,6 +69,15 @@ public class VerifyPinActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
+    private Runnable mMyRunnable = new Runnable()
+    {
+        @Override
+        public void run()
+        {
+            startActivity(new Intent(VerifyPinActivity.this, MainActivity.class));
+            finish();
+        }
+    };
 
     public void verifyPin(View view) {
         SharedPreferences sharedPreferences = getSharedPreferences("infoondata-userinfo", Context.MODE_PRIVATE);
@@ -78,8 +88,8 @@ public class VerifyPinActivity extends AppCompatActivity implements View.OnClick
         if(( val0 == digit[0]) && ( val1 == digit[1]) && ( val2 == digit[2]) && ( val3 == digit[3])){
             Snackbar.make(view, "Same Pin"+digit[0]+" "+digit[1]+" "+digit[2]+" "+digit[3], Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
-            startActivity(new Intent(VerifyPinActivity.this, InfoSetupActivity.class));
-            finish();
+            Handler myHandler = new Handler();
+            myHandler.postDelayed(mMyRunnable, 1000);
         }else{
             Snackbar.make(view, "Wrong Pin!", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();

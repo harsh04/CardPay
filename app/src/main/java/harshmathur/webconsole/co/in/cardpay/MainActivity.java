@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.View;
@@ -109,6 +108,7 @@ public class MainActivity extends AppCompatActivity
                 nav_user_name.setText(auth.getCurrentUser().getDisplayName());
                 TextView nav_user_email = (TextView)hView.findViewById(R.id.user_email);
                 nav_user_email.setText(auth.getCurrentUser().getEmail());
+                startActivity(new Intent(MainActivity.this,InfoSetupActivity.class));
             }else {
                 Log.d("AUTH","not authenticated");
                 finish();
