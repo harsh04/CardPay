@@ -72,6 +72,7 @@
                 android:text="1"
                 android:id="@+id/num1"
                 android:elevation="@dimen/cardview_default_elevation"
+                android:background="@android:color/transparent"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
                 android:textSize="22sp" />
             <Button
@@ -81,6 +82,7 @@
                 android:text="2"
                 android:id="@+id/num2"
                 android:elevation="@dimen/cardview_default_elevation"
+                android:background="@android:color/transparent"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
                 android:textSize="22sp"/>
             <Button
@@ -90,6 +92,7 @@
                 android:text="3"
                 android:id="@+id/num3"
                 android:elevation="@dimen/cardview_default_elevation"
+                android:background="@android:color/transparent"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
                 android:textSize="22sp"/>
         </TableRow>
@@ -105,6 +108,7 @@
                 android:text="4"
                 android:id="@+id/num4"
                 android:elevation="@dimen/cardview_default_elevation"
+                android:background="@android:color/transparent"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
                 android:textSize="22sp"/>
             <Button
@@ -114,6 +118,7 @@
                 android:text="5"
                 android:id="@+id/num5"
                 android:elevation="@dimen/cardview_default_elevation"
+                android:background="@android:color/transparent"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
                 android:textSize="22sp"/>
             <Button
@@ -123,6 +128,7 @@
                 android:text="6"
                 android:id="@+id/num6"
                 android:elevation="@dimen/cardview_default_elevation"
+                android:background="@android:color/transparent"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
                 android:textSize="22sp"/>
         </TableRow>
@@ -137,6 +143,7 @@
                 android:text="7"
                 android:id="@+id/num7"
                 android:elevation="@dimen/cardview_default_elevation"
+                android:background="@android:color/transparent"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
                 android:textSize="22sp"/>
             <Button
@@ -146,6 +153,7 @@
                 android:text="8"
                 android:id="@+id/num8"
                 android:elevation="@dimen/cardview_default_elevation"
+                android:background="@android:color/transparent"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
                 android:textSize="22sp"/>
             <Button
@@ -155,6 +163,7 @@
                 android:text="9"
                 android:id="@+id/num9"
                 android:elevation="@dimen/cardview_default_elevation"
+                android:background="@android:color/transparent"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
                 android:textSize="22sp"/>
         </TableRow>
@@ -167,8 +176,11 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="X"
+                android:textColor="@android:color/holo_red_dark"
                 android:id="@+id/cross"
-                android:elevation="@dimen/cardview_default_elevation"/>
+                android:elevation="@dimen/cardview_default_elevation"
+                android:background="@android:color/transparent"
+                android:textSize="20sp" />
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -176,6 +188,7 @@
                 android:text="0"
                 android:id="@+id/num0"
                 android:elevation="@dimen/cardview_default_elevation"
+                android:background="@android:color/transparent"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
                 android:textSize="22sp"/>
             <Button
@@ -183,9 +196,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Next"
+                android:textColor="#2196f3"
                 android:onClick="verifyPin"
                 android:id="@+id/nextBtn"
-                android:elevation="@dimen/cardview_default_elevation"/>
+                android:background="@android:color/transparent"
+                android:elevation="@dimen/cardview_default_elevation"
+                android:textSize="20sp" />
         </TableRow>
     </TableLayout>
 

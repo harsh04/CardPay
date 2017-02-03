@@ -86,7 +86,7 @@ public class VerifyPinActivity extends AppCompatActivity implements View.OnClick
         int val2 = Integer.parseInt(sharedPreferences.getString("digit2",""));
         int val3 = Integer.parseInt(sharedPreferences.getString("digit3",""));
         if(( val0 == digit[0]) && ( val1 == digit[1]) && ( val2 == digit[2]) && ( val3 == digit[3])){
-            Snackbar.make(view, "Same Pin"+digit[0]+" "+digit[1]+" "+digit[2]+" "+digit[3], Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "Pin Setup Successful", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             Handler myHandler = new Handler();
             myHandler.postDelayed(mMyRunnable, 1000);

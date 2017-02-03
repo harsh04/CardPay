@@ -30,6 +30,11 @@ public class MainActivity extends AppCompatActivity
     private static final int RC_SIGN_IN = 0;
     private FirebaseAuth auth;
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        startActivity(new Intent(MainActivity.this,UnlockActivity.class));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +81,7 @@ public class MainActivity extends AppCompatActivity
         if(auth.getCurrentUser() != null){
             Log.d("AUTH",auth.getCurrentUser().getEmail());
             Log.d("AUTH",auth.getCurrentUser().getDisplayName());
+
         }else{
             startActivityForResult(AuthUI.getInstance()
                     .createSignInIntentBuilder()

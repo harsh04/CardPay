@@ -9,6 +9,9 @@ import android.os.Bundle;
 public class SplashScreen extends Activity {
 
     private static int SPLASH_TIME_OUT = 2000;
+    private PrefManager prefManager;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +21,7 @@ public class SplashScreen extends Activity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                // Checking for first time launch - before calling setContentView()
                 Intent i = new Intent(SplashScreen.this, WelcomeActivity.class);
                 startActivity(i);
 

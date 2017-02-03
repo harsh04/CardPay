@@ -83,7 +83,7 @@ public class WelcomeActivity extends AppCompatActivity {
                     // move to next screen
                     viewPager.setCurrentItem(current);
                 } else {
-                    launchPinScreen();
+                    launchHomeScreen();
                 }
             }
         });
@@ -117,14 +117,10 @@ public class WelcomeActivity extends AppCompatActivity {
     private void launchHomeScreen() {
 
         prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+        startActivity(new Intent(WelcomeActivity.this, UnlockActivity.class));
         finish();
     }
-    private void launchPinScreen() {
-        prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(WelcomeActivity.this, PinSetupActivity.class));
-        finish();
-    }
+
 
     //  viewpager change listener
     ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {

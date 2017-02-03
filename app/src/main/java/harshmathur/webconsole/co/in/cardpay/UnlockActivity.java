@@ -1,19 +1,24 @@
 package harshmathur.webconsole.co.in.cardpay;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class PinSetupActivity extends Activity implements View.OnClickListener{
+public class UnlockActivity extends AppCompatActivity implements View.OnClickListener{
 
-
+    TextView heading;
     private int[] digit = new int[4];
     private int posOfPointer = 0;
+    private int wrongCount = 3;
 
     Button one,two,three,four,five,six,seven,eight,nine,zero,cross,next;
     ImageView[] digitImg = new ImageView[4];
@@ -22,6 +27,9 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pin);
+        heading = (TextView) findViewById(R.id.heading);
+        heading.setText("PIN to UNLOCK");
+
         next = (Button) findViewById(R.id.nextBtn);
         next.setEnabled(false);
         one = (Button) findViewById(R.id.num1);
@@ -53,7 +61,6 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
         digitImg[3] = (ImageView) findViewById(R.id.digit3);
 
     }
-
     protected void imgHandler(int pos,int val){
         if(val == 0){
             digitImg[pos].setImageResource(R.drawable.unlock);
@@ -62,17 +69,36 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
         }
     }
 
+    /* TO DISABLE BACKPRESS FOR SECURITY REASON */
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
 
     public void verifyPin(View view) {
         SharedPreferences sharedPreferences = getSharedPreferences("infoondata-userinfo", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("digit0", String.valueOf(digit[0]));
-        editor.putString("digit1", String.valueOf(digit[1]));
-        editor.putString("digit2", String.valueOf(digit[2]));
-        editor.putString("digit3", String.valueOf(digit[3]));
-        editor.apply();
-        startActivity(new Intent(PinSetupActivity.this, VerifyPinActivity.class));
-
+        int val0 = Integer.parseInt(sharedPreferences.getString("digit0",""));
+        int val1 = Integer.parseInt(sharedPreferences.getString("digit1",""));
+        int val2 = Integer.parseInt(sharedPreferences.getString("digit2",""));
+        int val3 = Integer.parseInt(sharedPreferences.getString("digit3",""));
+        if(( val0 == digit[0]) && ( val1 == digit[1]) && ( val2 == digit[2]) && ( val3 == digit[3])){
+            Toast.makeText(this,"Login Successful",Toast.LENGTH_SHORT);
+            startActivity(new Intent(UnlockActivity.this, MainActivity.class));
+            finish();
+        }else{
+            Snackbar.make(view, "Wrong Pin!", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+            posOfPointer = 0;
+            imgHandler(0,0);
+            imgHandler(1,0);
+            imgHandler(2,0);
+            imgHandler(3,0);
+            buttonHandle(true);
+            wrongCount--;
+            if(wrongCount<=0){
+                finish();
+            }
+        }
     }
 
     private void buttonHandle(Boolean bool){
@@ -89,11 +115,6 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
         zero.setEnabled(bool);
 
     }
-    /* TO DISABLE BACKPRESS FOR SECURITY REASON */
-    @Override
-    public void onBackPressed() {
-        moveTaskToBack(true);
-    }
 
     @Override
     public void onClick(View v) {
@@ -103,7 +124,7 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
                 imgHandler(posOfPointer,1);
                 if(posOfPointer == 3){
                     buttonHandle(false);
-                }else {          
+                }else {
                     posOfPointer++;
                 }
                 break;
@@ -112,7 +133,7 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
                 imgHandler(posOfPointer,1);
                 if(posOfPointer == 3){
                     buttonHandle(false);
-                }else {          
+                }else {
                     posOfPointer++;
                 }
                 break;
@@ -121,7 +142,7 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
                 imgHandler(posOfPointer,1);
                 if(posOfPointer == 3){
                     buttonHandle(false);
-                }else {          
+                }else {
                     posOfPointer++;
                 }
                 break;
@@ -130,7 +151,7 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
                 imgHandler(posOfPointer,1);
                 if(posOfPointer == 3){
                     buttonHandle(false);
-                }else {          
+                }else {
                     posOfPointer++;
                 }
                 break;
@@ -139,7 +160,7 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
                 imgHandler(posOfPointer,1);
                 if(posOfPointer == 3){
                     buttonHandle(false);
-                }else {          
+                }else {
                     posOfPointer++;
                 }
                 break;
@@ -148,7 +169,7 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
                 imgHandler(posOfPointer,1);
                 if(posOfPointer == 3){
                     buttonHandle(false);
-                }else {          
+                }else {
                     posOfPointer++;
                 }
                 break;
@@ -157,7 +178,7 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
                 imgHandler(posOfPointer,1);
                 if(posOfPointer == 3){
                     buttonHandle(false);
-                }else {          
+                }else {
                     posOfPointer++;
                 }
                 break;
@@ -166,7 +187,7 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
                 imgHandler(posOfPointer,1);
                 if(posOfPointer == 3){
                     buttonHandle(false);
-                }else {          
+                }else {
                     posOfPointer++;
                 }
                 break;
@@ -175,7 +196,7 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
                 imgHandler(posOfPointer,1);
                 if(posOfPointer == 3){
                     buttonHandle(false);
-                }else {          
+                }else {
                     posOfPointer++;
                 }
                 break;
@@ -184,7 +205,7 @@ public class PinSetupActivity extends Activity implements View.OnClickListener{
                 imgHandler(posOfPointer,1);
                 if(posOfPointer == 3){
                     buttonHandle(false);
-                }else {          
+                }else {
                     posOfPointer++;
                 }
                 break;

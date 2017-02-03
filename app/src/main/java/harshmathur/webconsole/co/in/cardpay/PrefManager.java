@@ -26,6 +26,7 @@ public class PrefManager {
         editor = pref.edit();
     }
 
+
     public void setFirstTimeLaunch(boolean isFirstTime) {
         editor.putBoolean(IS_FIRST_TIME_LAUNCH, isFirstTime);
         editor.commit();
