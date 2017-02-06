@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -43,21 +44,15 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        HomeFragment homeFragment = new HomeFragment();
+        MainFragment homeFragment = new MainFragment();
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(
-                R.id.content_main,
+                R.id.fragment_main,
                 homeFragment,
                 homeFragment.getTag()
         ).commit();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, PinSetupActivity.class));
-            }
-        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -161,10 +156,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            HomeFragment homeFragment = new HomeFragment();
+            MainFragment homeFragment = new MainFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(
-                    R.id.content_main,
+                    R.id.fragment_main,
                     homeFragment,
                     homeFragment.getTag()
             ).commit();
@@ -172,7 +167,7 @@ public class MainActivity extends AppCompatActivity
             CardsFragment cardsFragment = new CardsFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(
-                    R.id.content_main,
+                    R.id.fragment_main,
                     cardsFragment,
                     cardsFragment.getTag()
             ).commit();
@@ -180,7 +175,7 @@ public class MainActivity extends AppCompatActivity
             TransactionFragment transactionFragment = new TransactionFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(
-                    R.id.content_main,
+                    R.id.fragment_main,
                     transactionFragment,
                     transactionFragment.getTag()
             ).commit();
@@ -188,7 +183,7 @@ public class MainActivity extends AppCompatActivity
             SettingsFragment settingsFragment = new SettingsFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(
-                    R.id.content_main,
+                    R.id.fragment_main,
                     settingsFragment,
                     settingsFragment.getTag()
             ).commit();
@@ -196,7 +191,7 @@ public class MainActivity extends AppCompatActivity
             FeedbackFragment feedbackFragment = new FeedbackFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(
-                    R.id.content_main,
+                    R.id.fragment_main,
                     feedbackFragment,
                     feedbackFragment.getTag()
             ).commit();
@@ -204,7 +199,7 @@ public class MainActivity extends AppCompatActivity
             AboutFragment aboutFragment = new AboutFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(
-                    R.id.content_main,
+                    R.id.fragment_main,
                     aboutFragment,
                     aboutFragment.getTag()
             ).commit();
@@ -223,4 +218,21 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    /***
+    public void makePayment(View view) {
+        View camera = findViewById(R.id.cameraView);
+            camera.setVisibility(View.VISIBLE);
+        View barcode = findViewById(R.id.barcodeView);
+            barcode.setVisibility(View.GONE);
+
+    }
+
+    public void recievePayment(View view) {
+        View camera = findViewById(R.id.cameraView);
+            camera.setVisibility(View.GONE);
+        View barcode = findViewById(R.id.barcodeView);
+            barcode.setVisibility(View.VISIBLE);
+    }
+     ***/
 }
