@@ -219,12 +219,9 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    /***
+
     public void makePayment(View view) {
-        View camera = findViewById(R.id.cameraView);
-            camera.setVisibility(View.VISIBLE);
-        View barcode = findViewById(R.id.barcodeView);
-            barcode.setVisibility(View.GONE);
+
 
     }
 
@@ -234,5 +231,4 @@ public class MainActivity extends AppCompatActivity
         View barcode = findViewById(R.id.barcodeView);
             barcode.setVisibility(View.VISIBLE);
     }
-     ***/
 }
